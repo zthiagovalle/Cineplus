@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "665541508775",
+    "firebase_url": "https://project-cineplus.firebaseio.com",
+    "project_id": "project-cineplus",
+    "storage_bucket": "project-cineplus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665541508775:android:6f015a5c660828b122a582",
+        "android_client_info": {
+          "package_name": "com.example.cineplus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665541508775-8stobc9e6npcqejqr3i25nejqie5h6dk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnAWc_8kd-jyhIuas5db0YcAI6_Opb4ZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665541508775-8stobc9e6npcqejqr3i25nejqie5h6dk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

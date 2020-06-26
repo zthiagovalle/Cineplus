@@ -1,7 +1,6 @@
 import 'package:cineplus/widgets/widget_campoTexto.dart';
 import 'package:flutter/material.dart';
 import 'package:cineplus/widgets/alertDialog.dart';
-import 'package:cineplus/widgets/widget_filme.dart';
 
 class Register extends StatelessWidget {
   @override
