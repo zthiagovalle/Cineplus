@@ -1,5 +1,8 @@
+import 'package:cineplus/widgets/simpleAlertDialog.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:cineplus/widgets/widget_campoTexto.dart';
+import 'package:flutter_dialogs/flutter_dialogs.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -7,6 +10,13 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+  TextEditingController txtUsuario = TextEditingController();
+  TextEditingController txtSenha = TextEditingController();
+
+  //instância do Fire Base
+  var db = Firestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,11 +34,11 @@ class _LoginState extends State<Login> {
 
               Image.asset('assets/CinePlus.png', height: 200, width: 200,),
               
-              CampoTexto('Usuario', Icon(Icons.person)),
+              CampoTexto('Usuario', Icons.person,txtUsuario),
               
               SizedBox(height: 30,),
 
-              CampoTexto('Senha', Icon(Icons.lock_outline)),
+              CampoTexto('Senha', Icons.lock_outline, txtSenha),
 
               SizedBox(height: 30,),
 
@@ -37,7 +47,7 @@ class _LoginState extends State<Login> {
                       height: 40,
                       child: RaisedButton(
                           onPressed: (){
-                            Navigator.pushNamed(context, '/cineplus');
+                            verificaBanco(txtUsuario.text, txtSenha.text);
                           },
                           child: Text('Entrar', style: TextStyle(color: Colors.white, fontSize: 18),),
                           color: Colors.deepOrange ,                        
@@ -48,6 +58,24 @@ class _LoginState extends State<Login> {
         )
       )
     );
+  }
+
+  verificaBanco(String user, String senha) async {
+    DocumentSnapshot doc = await db.collection("usuarios")
+    .document(user).get();
+    if(user == "" || user == null || senha == "" || senha == ""){
+      showSimpleAlertDialog(context, "Campo vazio", "Por favor informe usuário e senha para logar");
+    }else{
+      if(doc.data == null){      
+      showSimpleAlertDialog(context, "Usuário não existe", "Usuário informado não existe em nosso sistema, por favor se cadastre ou digite um usuário válido");
+      }else{
+      if(senha == doc.data["senha"]){
+        Navigator.pushNamed(context, '/cineplus');
+      }else{    
+        showSimpleAlertDialog(context, "Senha incorreta", "Senha informada está incorreta");
+       }
+     }
+    }       
   }
 }
 
