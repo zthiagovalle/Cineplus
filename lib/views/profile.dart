@@ -7,8 +7,6 @@ class Profile extends StatefulWidget {
 }
 
 class _Profile extends State<Profile> {
-  int bottomNavBarIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     //Recuperar o ID do Documento
@@ -21,44 +19,41 @@ class _Profile extends State<Profile> {
         backgroundColor: Colors.black12,
       ),
       backgroundColor: Colors.deepPurple,
-      body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
+      body: Column(
             children: <Widget>[
 
               Text('Olá ${idUsuario}', style: TextStyle(fontSize: 40), textAlign: TextAlign.left ,),
               
               SizedBox(height: 50,),
               Text('Minha lista', style: TextStyle(fontSize: 25), textAlign: TextAlign.left ,),
-              Row(
-                children: <Widget>[
-                  FilmeWidget()
-                ],
-              )
-              
-             
+                      
+              SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                      children: <Widget>[
+                      FilmeWidget(),
+                        ],
+                      ), 
+                    ),
+
             ],
           ),
-        ),
-      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black38,
         items: [
           BottomNavigationBarItem(
             icon: IconButton(icon: Icon(Icons.person), color: Colors.deepOrange , 
-            onPressed: () { Navigator.pushNamed(context, '/profile'); },),
+            onPressed: () { Navigator.pushNamed(context, '/profile',arguments: idUsuario); },),
             title: Text('Perfil', style: TextStyle(color: Colors.white),),
             ),
           BottomNavigationBarItem(
             icon: IconButton(icon: Icon(Icons.home), color: Colors.deepOrange,
-            onPressed: () { Navigator.pushNamed(context, '/cineplus'); },),
+            onPressed: () { Navigator.pushNamed(context, '/cineplus',arguments: idUsuario); },),
             title: Text('Home', style: TextStyle(color: Colors.white),),
             ),
           BottomNavigationBarItem(
             icon: IconButton(icon: Icon(Icons.speaker_notes),  color: Colors.deepOrange ,
-            onPressed: () { Navigator.pushNamed(context, '/about'); },),
+            onPressed: () { Navigator.pushNamed(context, '/about',arguments: idUsuario); },),
             title: Text('Sobre', style: TextStyle(color: Colors.white),),
             ),
         ] ),

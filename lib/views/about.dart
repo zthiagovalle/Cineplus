@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+      //Recuperar o ID do Documento
+      final String idUsuario = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('Sobre'),
@@ -25,17 +27,17 @@ class About extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
             icon: IconButton(icon: Icon(Icons.person), color: Colors.deepOrange , 
-            onPressed: () {  Navigator.pushNamed(context, '/profile');},),
+            onPressed: () {  Navigator.pushNamed(context, '/profile',arguments: idUsuario);},),
             title: Text('Perfil', style: TextStyle(color: Colors.white),),
             ),
           BottomNavigationBarItem(
             icon: IconButton(icon: Icon(Icons.home), color: Colors.deepOrange,
-            onPressed: () { Navigator.pushNamed(context, '/cineplus'); },),
+            onPressed: () { Navigator.pushNamed(context, '/cineplus',arguments: idUsuario); },),
             title: Text('Home', style: TextStyle(color: Colors.white),),
             ),
           BottomNavigationBarItem(
             icon: IconButton(icon: Icon(Icons.speaker_notes),  color: Colors.deepOrange ,
-            onPressed: () { Navigator.pushNamed(context, '/about'); },),
+            onPressed: () { Navigator.pushNamed(context, '/about',arguments: idUsuario); },),
             title: Text('Sobre', style: TextStyle(color: Colors.white),),
             ),
         ] ),
