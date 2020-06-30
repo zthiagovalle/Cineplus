@@ -7,10 +7,14 @@ class CinePlus extends StatefulWidget {
 }
 
 class _CinePlusState extends State<CinePlus> {
-  int bottomNavBarIndex = 0;
+
+
 
   @override
   Widget build(BuildContext context) {
+      //Recuperar o ID do Documento
+      final String idUsuario = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Cine Plus'),
@@ -54,7 +58,7 @@ class _CinePlusState extends State<CinePlus> {
         items: [
           BottomNavigationBarItem(
             icon: IconButton(icon: Icon(Icons.person), color: Colors.deepOrange , 
-            onPressed: () { Navigator.pushNamed(context, '/profile'); },),
+            onPressed: () { Navigator.pushNamed(context, '/profile', arguments: idUsuario); },),
             title: Text('Perfil', style: TextStyle(color: Colors.white),),
             ),
           BottomNavigationBarItem(

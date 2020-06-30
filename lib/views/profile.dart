@@ -11,6 +11,9 @@ class _Profile extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+    //Recuperar o ID do Documento
+    final String idUsuario = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Perfil'),
@@ -25,7 +28,7 @@ class _Profile extends State<Profile> {
           child: Column(
             children: <Widget>[
 
-              Text('Olá (Usuario)', style: TextStyle(fontSize: 40), textAlign: TextAlign.left ,),
+              Text('Olá ${idUsuario}', style: TextStyle(fontSize: 40), textAlign: TextAlign.left ,),
               
               SizedBox(height: 50,),
               Text('Minha lista', style: TextStyle(fontSize: 25), textAlign: TextAlign.left ,),

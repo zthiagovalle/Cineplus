@@ -70,7 +70,7 @@ class _LoginState extends State<Login> {
       showSimpleAlertDialog(context, "Usuário não existe", "Usuário informado não existe em nosso sistema, por favor se cadastre ou digite um usuário válido");
       }else{
       if(senha == doc.data["senha"]){
-        Navigator.pushNamed(context, '/cineplus');
+        Navigator.pushNamed(context, '/cineplus', arguments: user);
       }else{    
         showSimpleAlertDialog(context, "Senha incorreta", "Senha informada está incorreta");
        }
