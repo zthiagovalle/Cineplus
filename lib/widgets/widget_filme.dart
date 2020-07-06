@@ -17,7 +17,7 @@ class _FilmeWidgetState extends State<FilmeWidget> {
         new Filme('Aquamen', 'assets/cartaz2.jpg'),
         new Filme('Vingadores', 'assets/cartaz3.jpg'),
         new Filme('Spider Man', 'assets/cartaz4.jpg'),
-        new Filme('Benom', 'assets/cartaz5.jpg'),
+        new Filme('Venom', 'assets/cartaz5.jpg'),
       ],
     );
   }

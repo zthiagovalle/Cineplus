@@ -7,7 +7,7 @@ class Filme extends StatelessWidget {
   final String nome;
   var corEstrela = Colors.grey;
 
-  Filme(this.nome, this.foto,): super();
+  Filme(this.nome, this.foto,);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,11 @@ class Filme extends StatelessWidget {
         Text(nome,style: TextStyle(fontSize: 20, color: Colors.white),),
         IconButton(icon: Icon(Icons.star, size: 35, color: corEstrela), 
         onPressed: (){
-          print('Teste');
+          if(corEstrela == Colors.grey){
+            corEstrela = Colors.yellow;
+          }else{
+            corEstrela = Colors.grey;
+          }
         })
       ],
     );

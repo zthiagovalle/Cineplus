@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   cloud_firestore: ^0.13.6
   flutter_dialogs: ^1.0.4
+  flutter_launcher_icons: ^0.7.5
 
 dev_dependencies:
   flutter_test:
@@ -72,3 +73,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/CinePlus.png"
